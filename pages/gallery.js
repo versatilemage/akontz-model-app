@@ -3,7 +3,8 @@ import React from 'react';
 import PageBanner from '../components/Common/PageBanner';
 import SubscribeForm from '../components/Common/SubscribeForm';
 // import Footer from '../components/_App/Footer';
-import Lightbox from 'react-image-lightbox';
+// import Lightbox from 'react-image-lightbox';
+import Lightbox from "yet-another-react-lightbox";
 import Link from 'next/link';
 
 const images = [
