@@ -1,7 +1,7 @@
 import React from 'react';
-import { resetIdCounter, Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 
-resetIdCounter();
+// resetIdCounter();
 
 const ProductsDetailsTabs = () => {
     return (

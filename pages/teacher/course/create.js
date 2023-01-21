@@ -2,7 +2,7 @@ import React from 'react'
 import { parseCookies } from 'nookies'
 import axios from 'axios'
 import { Spinner } from 'reactstrap'
-import toast from 'react-hot-toast'
+import toast, { Toaster } from 'react-hot-toast';
 import { useRouter } from 'next/router'
 import baseUrl from '@/utils/baseUrl'
 import catchErrors from '@/utils/catchErrors'
@@ -51,7 +51,7 @@ const Create = () => {
         if(name === 'profilePhoto'){
             const profilePhotoSize = files[0].size / 1024 / 1024
             if(profilePhotoSize > 2){
-                addToast('The profile photo size greater than 2 MB. Make sure less than 2 MB.', { 
+                toast.error('The profile photo size greater than 2 MB. Make sure less than 2 MB.', { 
                     appearance: 'error'
                 })
                 e.target.value = null
@@ -62,7 +62,7 @@ const Create = () => {
         } else if (name === 'coverPhoto'){
             const coverPhotoSize = files[0].size / 1024 / 1024
             if(coverPhotoSize > 2){
-                addToast('The cover photo size greater than 2 MB. Make sure less than 2 MB.', { 
+                toast.error('The cover photo size greater than 2 MB. Make sure less than 2 MB.', { 
                     appearance: 'error'
                 })
                 e.target.value = null
@@ -73,7 +73,7 @@ const Create = () => {
         } else if (name === 'course_preview_img'){
             const course_preview_img = files[0].size / 1024 / 1024
             if(course_preview_img > 2){
-                addToast('The course preview omage size greater than 2 MB. Make sure less than 2 MB.', { 
+                toast.error('The course preview omage size greater than 2 MB. Make sure less than 2 MB.', { 
                     appearance: 'error'
                 })
                 e.target.value = null
@@ -84,7 +84,7 @@ const Create = () => {
         }else if (name === 'PDFfile'){
             const PDFfile = files[0].size / 1024 / 1024
             if(PDFfile > 2){
-                addToast('The PDF is greater than 2 MB. Make sure less than 2 MB.', { 
+                toast.error('The PDF is greater than 2 MB. Make sure less than 2 MB.', { 
                     appearance: 'error'
                 })
                 e.target.value = null
@@ -94,12 +94,10 @@ const Create = () => {
         }else {
             setCourse(prevState => ({ ...prevState, [name]: value }))
         }
-        // console.log(course);
     }
 
     const handleProfilePhotoUpload = async () => {
         setImageUploading(true)
-        // console.log(post.file_url)
         const data = new FormData()
         data.append('file', course.profilePhoto)
         data.append('upload_preset', 'vikings')
@@ -402,7 +400,7 @@ const Create = () => {
                                     </div>
 
                                     <div className="form-group">
-                                        <label>Course PDF Notes (<i>File less than 2 MB & size 1920x500</i>)</label>
+                                        <label>Course PDF Notes (<i>File less than 2 MB</i>)</label>
 
                                         <br />
 
@@ -414,8 +412,6 @@ const Create = () => {
                                         />
 
                                         <br />
-
-                                        {/* <img src={uploadPDF} className="mxw-200 mt-20" /> */}
                                     </div>
 
                                     <div className="form-group">
@@ -464,6 +460,10 @@ const Create = () => {
                     </div>
                 </div>
             </div>
+            <Toaster
+                position="bottom-right"
+                reverseOrder={false}
+            />
         </React.Fragment>
     )
 }

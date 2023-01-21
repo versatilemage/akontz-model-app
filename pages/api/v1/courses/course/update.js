@@ -31,7 +31,7 @@ export default async (req, res) => {
         cover,
         preview,
         course_preview_video,
-        PDF
+        PDFfile
     } = req.body
 
     try {
@@ -48,7 +48,7 @@ export default async (req, res) => {
                 coverPhoto: cover,
                 course_preview_img: preview,
                 course_preview_video,
-                PDFfile: PDF
+                PDFfile
             },
             {
                 where: {id: id}

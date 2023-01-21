@@ -1,7 +1,6 @@
 import React from 'react'
 import Head from "next/head"
-import { ToastProvider } from 'react-toast-notifications'
-import { Toaster } from 'react-hot-toast'
+import toast, { Toaster } from 'react-hot-toast'
 import Router from 'next/router'
 import GoTop from './GoTop'
 import Navbar from './Navbar'
@@ -47,14 +46,9 @@ const Layout = ({ children, user }) => {
             </Head>
 
             {loader && <Preloader />}
-            
-            <Toaster
-                position="top-left"
-                reverseOrder={false}
-            />
 
-            <ToastProvider
-                placement = 'bottom-left'
+            <toast
+                placement = 'top-left'
                 autoDismissTimeout={10000}
                 autoDismiss
             >
@@ -73,9 +67,13 @@ const Layout = ({ children, user }) => {
                 <Footer />
 
                 <RtlSidebar />
-            </ToastProvider>
+            </toast>
 
             <CookieConsent>This website uses cookies to enhance the user experience.</CookieConsent>
+            <Toaster
+                position="bottom-right"
+                reverseOrder={false}
+            />
         </React.Fragment>
     );
 }

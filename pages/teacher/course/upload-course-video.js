@@ -4,7 +4,7 @@ import axios from 'axios'
 import { Alert } from 'reactstrap'
 import baseUrl from '@/utils/baseUrl'
 import { Spinner } from 'reactstrap'
-import toast from 'react-hot-toast'
+import toast, { Toaster } from 'react-hot-toast'
 import catchErrors from '@/utils/catchErrors'
 import PageBanner from '@/components/Common/PageBanner'
 import Link from '@/utils/ActiveLink'
@@ -52,7 +52,7 @@ const UploadCourseVideo = ({ courses }) => {
         if(name === 'video_url'){
             const videoSize = files[0].size / 1024 / 1024
             if(videoSize > 20){
-                addToast('The video size greater than 20 MB. Make sure less than 20 MB.', { 
+                toast.error('The video size greater than 20 MB. Make sure less than 20 MB.', { 
                     appearance: 'error'
                 })
                 e.target.value = null
@@ -239,6 +239,10 @@ const UploadCourseVideo = ({ courses }) => {
                     </div>
                 </div>
             </div>
+            <Toaster
+                position="bottom-right"
+                reverseOrder={false}
+            />
         </React.Fragment>
     )
 }

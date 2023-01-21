@@ -2,8 +2,8 @@ import React from 'react';
 import PageBanner from '@/components/SingleCourses/PageBanner';
 import StaticCoursesDetailsSidebar from '@/components/SingleCourses/StaticCoursesDetailsSidebar';
 import YouMightLikeTheCourses from '@/components/Courses/YouMightLikeTheCourses';
-import { resetIdCounter, Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-resetIdCounter();
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+// resetIdCounter();
 
 const SingleCourses = () => {
     return (

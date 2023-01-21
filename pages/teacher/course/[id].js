@@ -4,7 +4,7 @@ import axios from 'axios'
 import baseUrl from '@/utils/baseUrl'
 import {redirectUser} from '@/utils/auth'
 import { Spinner } from 'reactstrap'
-import toast from 'react-hot-toast'
+import toast, { Toaster } from 'react-hot-toast'
 import catchErrors from '@/utils/catchErrors'
 import PageBanner from '@/components/Common/PageBanner'
 import Link from '@/utils/ActiveLink'
@@ -48,7 +48,7 @@ const Edit = ({ existingData }) => {
         if(name === 'profilePhoto'){
             const profilePhotoSize = files[0].size / 1024 / 1024
             if(profilePhotoSize > 2){
-                addToast('The profile photo size greater than 2 MB. Make sure less than 2 MB.', { 
+                toast.error('The profile photo size greater than 2 MB. Make sure less than 2 MB.', { 
                     appearance: 'error'
                 })
                 e.target.value = null
@@ -59,7 +59,7 @@ const Edit = ({ existingData }) => {
         } else if (name === 'coverPhoto'){
             const coverPhotoSize = files[0].size / 1024 / 1024
             if(coverPhotoSize > 2){
-                addToast('The cover photo size greater than 2 MB. Make sure less than 2 MB.', { 
+                toast.error('The cover photo size greater than 2 MB. Make sure less than 2 MB.', { 
                     appearance: 'error'
                 })
                 e.target.value = null
@@ -70,7 +70,7 @@ const Edit = ({ existingData }) => {
         } else if (name === 'course_preview_img'){
             const course_preview_img = files[0].size / 1024 / 1024
             if(course_preview_img > 2){
-                addToast('The course preview omage size greater than 2 MB. Make sure less than 2 MB.', { 
+                toast.error('The course preview omage size greater than 2 MB. Make sure less than 2 MB.', { 
                     appearance: 'error'
                 })
                 e.target.value = null

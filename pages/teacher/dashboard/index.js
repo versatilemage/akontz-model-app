@@ -43,11 +43,6 @@ const index = () => {
                                             <a>pdf notes</a>
                                         </Link>
                                     </li>
-                                    <li>
-                                        <Link href="/teacher/course/create-meeting" activeClassName="active">
-                                            <a>Create Meetings</a>
-                                        </Link>
-                                    </li>
                                 </ul>
                             </div>
                         </div>

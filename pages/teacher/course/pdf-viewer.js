@@ -1,13 +1,12 @@
 import React from 'react';
-// import PDF from "../../../public/images/pdf/Chapter1.pdf"
+import Viewer from './viewpdf';
 
 function Viewers() {
-
-    return (
-      <>
-        <iframe src={`https://www.africau.edu/images/default/sample.pdf`} width="100%" height="800vh" />
-      </>
-    );
+  return (
+    <div>
+      <Viewer fileUrl={`https://www.africau.edu/images/default/sample.pdf`}/>
+    </div>
+  );
 }
 
 export default Viewers;

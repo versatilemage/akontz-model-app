@@ -2,14 +2,12 @@ import React from "react";
 import PageBanner from "@/components/SingleCourses/PageBanner";
 import CoursesDetailsSidebar from "@/components/SingleCourses/CoursesDetailsSidebar";
 import YouMightLikeTheCourses from "@/components/Courses/YouMightLikeTheCourses";
-import { resetIdCounter, Tab, Tabs, TabList, TabPanel } from "react-tabs";
-resetIdCounter();
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import axios from "axios";
 import baseUrl from "@/utils/baseUrl";
 import CoursesCurriculum from "@/components/Courses/CoursesCurriculum";
 
 const Details = ({ course, user }) => {
-	console.log(course)
 	return (
 		<React.Fragment>
 			<PageBanner

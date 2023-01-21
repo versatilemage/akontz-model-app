@@ -5,7 +5,6 @@ import baseUrl from '@/utils/baseUrl'
 import CourseCard from '@/components/Courses/CourseCard'
 
 const Index = ({ courses }) => {
-    // console.log(courses)
     return (
         <React.Fragment>
             <PageBanner

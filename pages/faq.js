@@ -9,10 +9,10 @@ import {
     AccordionItemPanel,
     AccordionItemButton
 } from 'react-accessible-accordion';
-import { resetIdCounter, Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import SubscribeForm from '../components/Common/SubscribeForm';
 
-resetIdCounter();
+// resetIdCounter();
 
 const Faq = () => {
     return (

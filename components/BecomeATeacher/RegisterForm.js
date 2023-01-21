@@ -3,19 +3,18 @@ import { useForm } from 'react-hook-form';
 import { parseCookies } from 'nookies'
 import { Spinner, Alert } from 'reactstrap'
 import axios from 'axios'
-import { useToasts } from 'react-toast-notifications'
+import toast, { Toaster } from 'react-hot-toast'
 import catchErrors from '@/utils/catchErrors'
 import baseUrl from '@/utils/baseUrl'
 
 const RegisterForm = ({ user }) => {
     const { token } = parseCookies()
-    const { addToast } = useToasts()
 
     const INIT_APPLY = {
         name: user.name,
         email: user.email,
         number: user.phone,
-        subject: "Becaome A Teacher!",
+        subject: "Become A Teacher!",
         as_teacher_apply: true,
         as_teacher_req_desc: '',
     }
@@ -50,7 +49,7 @@ const RegisterForm = ({ user }) => {
                 headers: {Authorization: token}
             })
 
-            addToast(response.data, { 
+            toast.success(response.data, { 
                 appearance: 'success'
             })
 
@@ -143,7 +142,7 @@ const RegisterForm = ({ user }) => {
                             <div className="col-lg-12 col-md-12">
                                 <div className="form-group">
                                     <textarea 
-                                        name="text" 
+                                        // name="text" 
                                         cols="30" 
                                         rows="5" 
                                         placeholder="Please tell us about your teaching profession" 
@@ -151,10 +150,10 @@ const RegisterForm = ({ user }) => {
                                         name="as_teacher_req_desc"
                                         value={apply.as_teacher_req_desc}
                                         onChange={handleChange}
-                                        ref={register({ required: true })}
+                                        // ref={register({ required: true })}
                                     />
                                     <div className='invalid-feedback' style={{display: 'block'}}>
-                                        {errors.text && 'Details is required.'}
+                                        {errors?.text && 'Details is required.'}
                                     </div>
                                 </div>
                             </div>
@@ -177,6 +176,10 @@ const RegisterForm = ({ user }) => {
                     </form>
                 </div>
             </div>
+            <Toaster
+                position="bottom-right"
+                reverseOrder={false}
+            />
         </div>
     )
 }

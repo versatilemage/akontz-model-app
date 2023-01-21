@@ -1,7 +1,7 @@
 import React from "react";
 import StripeCheckout from "react-stripe-checkout";
 import catchErrors from "@/utils/catchErrors";
-import toast from "react-hot-toast";
+import toast, { Toaster } from 'react-hot-toast'
 import { useRouter } from "next/router";
 import baseUrl from "@/utils/baseUrl";
 import axios from "axios";
@@ -47,6 +47,10 @@ const CheckoutBtn = ({ user, price, cartItems, onClearCart }) => {
 					</button>
 				</div>
 			</StripeCheckout>
+			<Toaster
+                position="bottom-right"
+                reverseOrder={false}
+            />
 		</div>
 	);
 };
