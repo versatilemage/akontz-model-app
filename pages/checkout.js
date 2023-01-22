@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import CheckoutBtn from "@/components/CheckoutButton/CheckoutBtn";
+// import CheckoutBtn from "@/components/CheckoutButton/CheckoutBtn";
 import { useSelector, useDispatch } from "react-redux";
 import PageBanner from "../components/Common/PageBanner";
 import { calculateCartTotal } from "@/utils/calculateCartTotal";
-import PaymentButton from "@/components/CheckoutButton/RazorPay";
+// import PaymentButton from "@/components/CheckoutButton/RazorPay";
 
 const Checkout = ({ user }) => {
 	// console.log(user);
@@ -80,12 +80,12 @@ const Checkout = ({ user }) => {
 									</table>
 								</div>
 
-								<PaymentButton
+								{/* <PaymentButton
 									price={cartAmout}
 									cartItems={cartItems}
 									user={user}
 									onClearCart={() => onClearCart()}
-								/>
+								/> */}
 							</div>
 						</div>
 					</div>

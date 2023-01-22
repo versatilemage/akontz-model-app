@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { legacy_createStore as createStore, applyMiddleware } from "redux";
-import { composeWithDevTools } from "redux-devtools-extension";
+// import { composeWithDevTools } from "redux-devtools-extension";
 import thunkMiddleware from "redux-thunk";
 import reducers from "./reducers";
 
@@ -10,7 +10,7 @@ function initStore(initialState) {
 	return createStore(
 		reducers,
 		initialState,
-		composeWithDevTools(applyMiddleware(thunkMiddleware))
+		// composeWithDevTools(applyMiddleware(thunkMiddleware))
 	);
 }
 

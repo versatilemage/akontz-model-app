@@ -1,9 +1,10 @@
 const path = require("path");
-const withPWA = require("next-pwa");
+// const withPWA = require("next-pwa");
 const nextTranslate = require("next-translate");
 
 module.exports = nextTranslate(
-	withPWA({
+	// withPWA({
+	{
 		pwa: {
 			disable: process.env.NODE_ENV === "development",
 			// dest: 'public',
@@ -25,5 +26,5 @@ module.exports = nextTranslate(
 			STRIPE_PUBLISHABLE_KEY:
 				"pk_test_ZaZZWZGlvdIn12yFleIqyjSI00G4e18Kf7",
 		},
-	})
+	}
 );

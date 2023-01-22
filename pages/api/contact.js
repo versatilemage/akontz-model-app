@@ -1,5 +1,5 @@
 import nodemailer from 'nodemailer';
-import sgTransport from 'nodemailer-sendgrid-transport';
+// import sgTransport from 'nodemailer-sendgrid-transport';
 
 const transporter = {
     auth: {
@@ -8,7 +8,7 @@ const transporter = {
     }
 }
 
-const mailer = nodemailer.createTransport(sgTransport(transporter));
+const mailer = nodemailer.createTransport(transporter);//sgTransport
 
 export default async (req, res) => {
     console.log(req.body)
