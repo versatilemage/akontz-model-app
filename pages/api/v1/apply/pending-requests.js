@@ -29,9 +29,9 @@ export default async (req, res) => {
         })
     
         // console.log(pendingRequests)
-        res.send({pendingRequests: pendingRequests})
+        res.json({pendingRequests});
     } catch (error) {
-        console.log(error)
-        res.send("Error! Try again")
+        console.error(error);
+        res.status(500).json({ message: 'An error occurred. Please try again later.' });
     }
 }

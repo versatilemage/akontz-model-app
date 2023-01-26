@@ -91,7 +91,7 @@ const pendingRequests = ({pendingRequests}) => {
                                     </thead>
 
                                     <tbody>
-                                        {pendingRequests.length ? (
+                                        {pendingRequests?.length ? (
                                             <>
                                                 {pendingRequests.map((request) => {
                                                     return (
