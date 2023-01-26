@@ -1,32 +1,30 @@
-import Cors from 'cors'
-import initMiddleware from '@/lib/init-middleware'
-// import { Op } from 'Sequelize'
+import cors from 'cors';
+import initMiddleware from '@/lib/init-middleware';
+import { Op } from 'sequelize';
 
-import { 
-    courses as Course,
-    users as User,
-    enroled_courses as Enroled_courses,
-} from '@/models/index'
+import {
+courses as Course,
+users as User,
+enroled_courses as EnroledCourses,
+} from '@/models/index';
 
 // Initialize the cors middleware
-const cors = initMiddleware(
-    // You can read more about the available options here: https://github.com/expressjs/cors#configuration-options
-    Cors({
-        // Only allow requests with GET, POST and OPTIONS
-        methods: ['GET', 'POST', 'OPTIONS', 'DELETE', 'PUT'],
-    })
-)
+const corsMiddleware = initMiddleware(
+cors({
+// Only allow requests with GET, POST, PUT, DELETE and OPTIONS
+methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+})
+);
 
 export default async (req, res) => {
-    await cors(req, res)
+await corsMiddleware(req, res);
 
-    const {keyword} = req.query
-    console.log(keyword)
+    const { keyword } = req.query;
 
     try {
         const courses = await Course.findAll({
             where: {
-                title: keyword
+                title: { [Op.iLike]: `%${keyword}%` }
             },
             order: [
                 ['createdAt', 'DESC']
@@ -35,14 +33,15 @@ export default async (req, res) => {
                 model: User, as: 'user',
                 attributes: ['name', 'profilePhoto']
             },{
-                model: Enroled_courses, as: 'enroled_courses',
+                model: EnroledCourses, as: 'enroled_courses',
                 attributes: ['courseId']
             }],
-        })
-
-        res.send({courses})
+        });
+    
+        res.send({ courses });
     } catch (error) {
-        console.log(error)
+        console.error(error);
+        res.status(500).send({ message: 'An error occurred while searching for courses' });
     }
 
 }
