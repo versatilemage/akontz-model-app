@@ -1,8 +1,9 @@
 const path = require("path");
 // const withPWA = require("next-pwa");
-const nextTranslate = require("next-translate");
+// const nextTranslate = require("next-translate");
 
-module.exports = nextTranslate(
+// module.exports = nextTranslate(
+module.exports = (
 	// withPWA({
 	{
 		// pwa: {
