@@ -58,7 +58,9 @@ const Cart = ({ user }) => {
 											/>
 										))
 									) : (
-										<h3>Empty</h3>
+										<tr>
+											<th>empty</th>
+										</tr>
 									)}
 								</tbody>
 							</table>

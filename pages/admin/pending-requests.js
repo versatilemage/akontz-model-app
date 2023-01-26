@@ -7,6 +7,7 @@ import baseUrl from '@/utils/baseUrl'
 import catchErrors from '@/utils/catchErrors'
 import PageBanner from '@/components/Common/PageBanner'
 import Link from '@/utils/ActiveLink'
+import {redirectUser} from '@/utils/auth'
 
 const pendingRequests = ({pendingRequests}) => {
     // console.log(pendingRequests)
@@ -19,7 +20,7 @@ const pendingRequests = ({pendingRequests}) => {
             const payload = { userId: id }
             const response = await axios.post(url, payload)
             // console.log(response.data)
-            addToast(response.data, { 
+            toast.success(response.data, { 
                 appearance: 'success'
             })
             router.push('/admin/pending-requests')
@@ -130,38 +131,6 @@ const pendingRequests = ({pendingRequests}) => {
                                     </tbody>
                                 </table> 
                             </div>
-
-                            {/* {pendingRequests.length ? (
-                                <>
-                                    {pendingRequests.map((request) => {
-                                        return (
-                                            <ul key={request.id}>
-                                                <li>
-                                                    {request.name}
-                                                    <button
-                                                        onClick={ e => {
-                                                            window.confirm("Are you sure?") && approveReq(request.id)
-                                                        }}
-                                                    >
-                                                        Approve
-                                                    </button>
-                                                    <button
-                                                        onClick={ e => {
-                                                            window.confirm("Are you sure?") && declineReq(request.id)
-                                                        }}
-                                                    >
-                                                        Decline
-                                                    </button>
-                                                </li>
-                                            </ul>
-                                        )
-                                    })}
-                                </>
-                            ) : (
-                                <ul>
-                                    <li>No Pending Requests!</li>
-                                </ul>
-                            )} */}
                         </div>
                     </div>
                 </div>
