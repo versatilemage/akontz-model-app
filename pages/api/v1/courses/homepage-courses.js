@@ -32,10 +32,10 @@ export default async (req, res) => {
                 attributes: ['courseId']
             }],
         })
-
-        res.send({courses})
+        res.status(200).json({courses});
     } catch (error) {
         console.log(error)
+        res.status(500).json({error: error.message});
     }
 
 }
