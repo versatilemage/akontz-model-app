@@ -1,7 +1,7 @@
 import React from 'react'
 import { parseCookies } from 'nookies'
 import axios from 'axios'
-import toast, { Toaster } from 'react-hot-toast'
+import { Toaster, toast } from 'react-hot-toast'
 import { useRouter } from 'next/router'
 import baseUrl from '@/utils/baseUrl'
 import catchErrors from '@/utils/catchErrors'
