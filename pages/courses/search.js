@@ -37,7 +37,7 @@ const Index = ({ courses }) => {
 
                     <div className="row">
 
-                        {courses.length ? courses.map(course => (
+                        {courses?.length ? courses.map(course => (
                             <CourseCard {...course} key={course.id} />
                         )) : (
                             <h1>Not Found</h1>

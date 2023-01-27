@@ -49,7 +49,7 @@ const Checkout = ({ user }) => {
 										</thead>
 
 										<tbody>
-											{cartItems.map((cart) => (
+											{cartItems?.map((cart) => (
 												<tr key={cart.id}>
 													<td className="product-name">
 														<a href="#">

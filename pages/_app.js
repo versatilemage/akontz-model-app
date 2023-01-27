@@ -75,7 +75,7 @@ MyApp.getInitialProps = async ({ Component, ctx }) => {
 
 			pageProps.user = user;
 		} catch (error) {
-			// console.error("Error getting current user", error);
+			console.error("Error getting current user", error);
 			//invalid token
 			// console.log(error)
 			destroyCookie(ctx, "token");
