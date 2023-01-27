@@ -29,9 +29,9 @@ const Layout = ({ children, user }) => {
         setLoader(false)
     })
     
-    const isStudent = user && user.role === 'student'
-    const isAdmin = user && user.role === 'admin'
-    const isTeacher = user && user.role === 'teacher'
+    const isStudent = user && user?.role === 'student'
+    const isAdmin = user && user?.role === 'admin'
+    const isTeacher = user && user?.role === 'teacher'
     
     
     return(
