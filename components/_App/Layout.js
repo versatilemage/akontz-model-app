@@ -42,7 +42,7 @@ const Layout = ({ children, user }) => {
                 <meta name="description" content="Akontz Model" />
                 <meta name="og:title" property="og:title" content="Akontz Model"></meta>
                 <meta name="twitter:card" content="Akontz Model"></meta>
-                <link rel="canonical" href="https://edemy-react.envytheme.com/"></link>
+                {/* <link rel="canonical" href="https://edemy-react.envytheme.com/"></link> */}
             </Head>
     
             {loader && <Preloader />}
