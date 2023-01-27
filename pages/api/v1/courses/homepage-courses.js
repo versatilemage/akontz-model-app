@@ -17,6 +17,7 @@ const cors = initMiddleware(
 
 export default async (req, res) => {
     await cors(req, res)
+    res.setHeader('Content-Type', 'application/json');
 
     try {
         const courses = await Course.findAll({

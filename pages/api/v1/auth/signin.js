@@ -16,6 +16,9 @@ const cors = initMiddleware(
 
 export default async (req, res) => {
     await cors(req, res)
+    res.setHeader('Content-Type', 'application/json')
+    res.setHeader('Access-Control-Allow-Origin', '*')
+    res.setHeader('Access-Control-Allow-Headers', 'Authorization, Origin, X-Requested-With, Content-Type, Accept')
     const { email, password } = req.body
     try {
         if (!isEmail(email)){
