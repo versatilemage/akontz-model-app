@@ -16,8 +16,11 @@ const cors = initMiddleware(
 )
 
 export default async (req, res) => {
+
     await cors(req, res)
+
     res.setHeader('Content-Type', 'application/json');
+    res.setHeader("Cache-Control", "s-maxage=10, stale-while-revalidate");
 
     try {
         const courses = await Course.findAll({
@@ -35,7 +38,7 @@ export default async (req, res) => {
         })
         res.status(200).json({courses});
     } catch (error) {
-        console.log(error)
+        console.log("error", error)
         res.status(500).json({error: error.message});
     }
 
